@@ -18,7 +18,7 @@ class AdventurersController < ApplicationController
 
     get "/adventurers/:id" do #make sure the route is after the new method
         if logged_in?
-            @adventurer = Adventurer.all.find_by_id(params[:id])
+            @adventurer = Adventurer.find_by_id(params[:id])
             erb :"adventurers/show"
         else
             redirect "/login"
@@ -35,6 +35,11 @@ class AdventurersController < ApplicationController
         else
             redirect "adventurers/new" #refreshes page
         end
+    end
+
+    get "/adventurers/randomize" do
+           adventurer = current_user.adventurers.randomize
+            redirect "/adventurers"
     end
     
     get "/adventurers/:id/edit" do
