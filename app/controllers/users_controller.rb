@@ -15,7 +15,7 @@ class UsersController < ApplicationController
             # set the session ID
             session[:user_id] = @user.id
             # redirect the user
-            redirect "/thoughts"
+            redirect "/adventurers"
         else
         # if it doesn't save
             # redirect them to the sign up page again

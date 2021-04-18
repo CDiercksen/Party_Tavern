@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         #put the user into sessions
             session[:user_id] = user.id #this is the line that's actually logging the user in
         #redirect them somewhere
-            redirect "/thoughts"
+            redirect "/adventurers"
         #if they don't exist, then redirect somewhere else...
         else 
             redirect "/login"
