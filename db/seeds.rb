@@ -10,13 +10,13 @@ end
 
 5.times do
     Adventurer.create(
-        name: "",
-        fantasy_origin: "",
-        class: "",
-        hometown: "",
-        background: "",
-        weapon: "",
-        nemesis: "",
+        name: [Faker::FunnyName.two_word_name, Faker::FunnyName.three_word_name, Faker::FunnyName.four_word_name].sample,
+        fantasy_origin: Faker::Games::DnD.race,
+        class: Faker::Games::DnD.klass,
+        hometown: Faker::Games::DnD.city,
+        background: Faker::Games::DnD.background,
+        weapon: [Faker::Games::DnD.melee_weapon, Faker::Games::DnD.ranged_weapon].sample,
+        nemesis: Faker::Games::DnD.monster,
 
         experience_level: [1...20].sample
         user_id: User.all.sample
