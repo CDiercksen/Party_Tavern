@@ -1,0 +1,16 @@
+<h1> All The Users Here! Yay! </h1>
+
+</ul>
+
+<% @users.each do | user | %>
+    <li>
+        <a href="/users/<%= user.id %>" > <!-- creates hyperlink to the items listed -->
+            <%= user.username %></a> <!--calls for user names-->
+    </li>
+
+
+
+
+<% end %>
+
+</ul>
