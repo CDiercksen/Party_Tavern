@@ -1,0 +1,23 @@
+<h1><%= @adventurer.name %></h1>
+
+
+
+
+<h3>Origin: <%= @adventurer.fantasy_origin %></h3>
+<h3>Class: <%= @adventurer.class %></h3>
+<h3>Hometown: <%= @adventurer.hometown %></h3>
+<h3>Background: <%= @adventurer.background %></h3>
+<h3>Weapon: <%= @adventurer.weapon %></h3>
+<h3>Nemesis: <%= @adventurer.nemesis %></h3>
+<h3>Experience Level: <%= @adventurer.experience_level %></h3>
+
+
+<a href="/adventurers/<%= @adventurer.id %>/edit" > EDIT </a>
+
+<br><br>
+
+<h3>WANNA DELETE THIS adventurer??</h3>
+        <form method="POST" action="/adventurers/<%= @adventurer.id %>">
+            <input type="hidden" id="hidden" name="_method" value="DELETE">
+            <input type="submit" value="DELETE">
+        </form>

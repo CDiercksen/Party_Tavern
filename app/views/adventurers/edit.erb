@@ -1,0 +1,45 @@
+<h1> EDIT THIS </h1>
+
+<h2> <%= @adventurer.subject %> </h2>
+
+<form method="POST" action="/adventurers/<%= @adventurer.id %>">
+    
+        <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+    <p> Name: <input type="text" name="name"></p>
+    <p> Fantasy Origin: <input type="text" name="fantasy_origin"></p>
+    <p> Class: <input type="text" name="class"></p>
+    <p> Hometown: <input type="text" name="hometown"></p>
+    <p> Background: <input type="text" name="background"></p>
+    <p> Weapon: <input type="text" name="weapon"></p>
+    <p> Nemesis: <input type="text" name="nemesis"></p>
+    
+    <br><br>
+    
+    Intrusive:
+    <input type="radio" name="intrusive" id="intrusiveChoice1" value="true">
+    <label for="intrusiveChoice1">YES</label>
+
+    <input type="radio" name="intrusive" id="intrusiveChoice2" value="false">
+    <label for="intrusiveChoice2">NO</label>
+    
+    <br><br>
+
+    Logical:
+    <input type="radio" name="logical" id="logicalChoice1" value="true">
+    <label for="logicalChoice1">YES</label>
+
+    <input type="radio" name="logical" id="logicalChoice2" value="false">
+    <label for="logicalChoice2">NO</label>
+
+    <br><br>
+    
+
+
+    <input type="submit">
+
+
+
+
+
+</form>

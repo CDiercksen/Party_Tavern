@@ -1,0 +1,26 @@
+<h1> All The adventurers Here! </h1>
+
+<br><br>
+
+<a href="/adventurers/new" > ADD A NEW adventurer </a>
+
+
+
+
+<ul><br><br><br><br>
+
+    <% @adventurers.each do |adventurer| %>
+        <li>
+          <a href="/adventurers/<%= adventurer.id %>" > <!-- creates hyperlink to the items listed -->
+            <%= adventurer.name %> <!--calls for adventurer name-->
+         </a> 
+         </li>
+
+    <% end %>
+
+</ul>
+
+<br><br>
+<br><br>
+
+<a href="/adventurers/new" > ADD A NEW adventurer </a>
