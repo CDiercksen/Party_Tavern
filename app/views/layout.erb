@@ -19,6 +19,13 @@
         <%= yield %>
 
       <footer class="branding">
+      <% if logged_in? %> <!--logged_in? is a helper method set in application_controller.rb -->
+          <h4>Welcome <%= current_user.name %></h4> <!--current_user is a helper method set in application_controller.rb -->
+          <h4><a href="/logout">Log out</a></h4>
+        <% else %>
+          <h4><a href="/signup">Signup</a></h4>
+          <h4><a href="/login">Login</a></h4>
+        <% end %>
         <small>&copy; 2021 <strong>PartyTavern</strong></small>
       </footer>
     </div>
