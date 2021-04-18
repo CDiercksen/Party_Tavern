@@ -18,7 +18,7 @@ end
         weapon: [Faker::Games::DnD.melee_weapon, Faker::Games::DnD.ranged_weapon].sample,
         nemesis: Faker::Games::DnD.monster,
 
-        experience_level: [1...20].sample,
+        experience_level: [1..20].sample,
         user_id: User.all.sample
     )
 end
