@@ -29,18 +29,31 @@ class AdventurersController < ApplicationController
         # make our adventurers belong to a user
         # adventurer = adventurer.new(params)
         # adventurer.user_id = current_user.id
-        adventurer = current_user.adventurers.build(params) #using helper method current_user which finds/returns a user object
-        if adventurer.save 
-            redirect "adventurers/#{adventurer.id}" #sends to page assigned to adventurer id
+        if params[:randomize?] == "Yes"
+            adventurer = Adventurer.create(
+                name: [Faker::FunnyName.two_word_name, Faker::FunnyName.three_word_name, Faker::FunnyName.four_word_name].sample,
+                fantasy_origin: Faker::Games::DnD.race,
+                class: Faker::Games::DnD.klass,
+                hometown: Faker::Games::DnD.city,
+                background: Faker::Games::DnD.background,
+                weapon: [Faker::Games::DnD.melee_weapon, Faker::Games::DnD.ranged_weapon].sample,
+                nemesis: Faker::Games::DnD.monster,
+        
+                experience_level: rand(1..20),
+                user_id: current_user.id
+            )
+            redirect "/adventurers/#{adventurer.id}"
         else
-            redirect "adventurers/new" #refreshes page
+            params.delete(:randomize?)
+            adventurer = current_user.adventurers.build(params) #using helper method current_user which finds/returns a user object
+            if adventurer.save 
+                 redirect "/adventurers/#{adventurer.id}" #sends to page assigned to adventurer id
+            else
+                redirect "/adventurers/new" #refreshes page
+            end
         end
     end
 
-    get "/adventurers/randomize" do
-           adventurer = current_user.adventurers.randomize
-            redirect "/adventurers"
-    end
     
     get "/adventurers/:id/edit" do
         # binding.pry
