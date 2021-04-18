@@ -3,8 +3,8 @@ Adventurer.destroy_all
 
 3.times do
     User.create(
-        name: "",
-        username: "",
+        name: Faker::TvShows::HeyArnold.character,
+        username: Faker::Games::Pokemon.name,
         password: "password")
 end
 
