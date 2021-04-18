@@ -8,3 +8,4 @@ run ApplicationController
 
 use UsersController
 use AdventurersController
+use SessionsController
