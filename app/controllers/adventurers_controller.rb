@@ -77,7 +77,7 @@ class AdventurersController < ApplicationController
         if @adventurer.update(params) #Did We Make a Change?
             redirect "/adventurers/#{@adventurer.id}"
         else
-            redirect "adventurers/new"
+            redirect "adventurers/#{@adventurer.id}/edit"
         end
     end
 
